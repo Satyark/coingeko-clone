@@ -1,23 +1,10 @@
 'use client';
 import useToken from '@/hooks/useToken';
 import { Spinner } from '@nextui-org/react';
+import Image from 'next/image';
 import React, { useMemo } from 'react';
+import Pagination from './Pagination';
 
-const mockData = [
-  {
-    rank: 1,
-    name: 'Bitcoin',
-    symbol: 'BTC',
-    price: '$59,776.41',
-    change1h: '-0.4%',
-    change24h: '2.5%',
-    change7d: '10.0%',
-    volume: '$32,453,605,365',
-    marketCap: '$1,180,822,246,717',
-    imgSrc: 'https://assets.coingecko.com/coins/images/1/large/bitcoin.png',
-  },
-  // Add more coins with the same structure...
-];
 
 const columns = [
     {
@@ -46,13 +33,16 @@ const columns = [
       },
     ]
 const CryptoTable = () => {
-    const {tokens, loading, error} = useToken();
+    const {tokens, loading, error, currentPage, totalPages, handleNext, handlePrev, handlePageClick, pages} = useToken();
     const rows = useMemo(()=> tokens,[]);
+    // console.log(rows[0].price_change_percentage_24hs);
+
+    
 
   return (
     // <div className="flex gap-4">{ loading ? <Spinner color="warning"/>:
     <div className="mx-auto px-4 py-8">
-      <table className="min-w-full table-auto text-left bg-gray-900 text-white">
+      <table className="min-w-auto table-auto text-left bg-gray-900 text-white">
         <thead className="bg-gray-800">
           <tr>
             {/* {columns.map((column,id)=>(
@@ -61,11 +51,12 @@ const CryptoTable = () => {
             <th className="px-4 py-2">#</th>
             <th className="px-4 py-2">Coin</th>
             <th className="px-4 py-2">Price</th>
-            <th className="px-4 py-2">1h</th>
-            <th className="px-4 py-2">24h</th>
-            <th className="px-4 py-2">7d</th>
-            <th className="px-4 py-2">24h Volume</th>
-            <th className="px-4 py-2">Market Cap</th>
+            <th className="px-4 py-2 hidden md:table-cell">1h</th>
+            <th className="px-4 py-2 hidden md:table-cell">24h</th>
+            <th className="px-4 py-2 hidden md:table-cell">7d</th>
+            <th className="px-4 py-2 hidden md:table-cell">24h Volume</th>
+            <th className="px-4 py-2 hidden md:table-cell">Market Cap</th>
+            <th className="px-4 py-2 hidden md:table-cell">Last 7 Days</th>
           </tr>
         </thead>
         {/* <Spinner/> */}
@@ -74,27 +65,38 @@ const CryptoTable = () => {
             <tr key={index} className="border-b border-gray-700 hover:bg-gray-800">
               <td className="px-4 py-2">{coin.key}</td>
               <td className="px-4 py-2 flex items-center">
-                <img src={coin.image} alt={coin.name} className="w-6 h-6 mr-2" />
+                <Image src={coin.image} alt='/' width={24} height={24} className='mr-2' />
                 <span className="font-medium">{coin.name}</span>
-                <span className="ml-2 text-gray-500">{coin.symbol}</span>
+                <span className="ml-2 text-gray-500">{coin.symbol.toUpperCase()}</span>
               </td>
               <td className="px-4 py-2">$ {coin.current_price}</td>
-              <td className={`px-4 py-2 ${coin.name.startsWith('-') ? 'text-red-500' : 'text-green-500'}`}>
+              <td className={`px-4 py-2 hidden md:table-cell ${coin.name.startsWith('-') ? 'text-red-500' : 'text-green-500'}`}>
                 1.5
               </td>
-              <td className={`px-4 py-2 ${coin.price_change_percentage_24h<0 ? 'text-red-500' : 'text-green-500'}`}>
-              {coin.price_change_percentage_24h >0 ? '▲' : '▼'}
-               {coin.price_change_percentage_24h}
+              <td className={`px-4 py-2 hidden md:table-cell ${coin.price_change_percentage_24h < 0 ? 'text-red-500' : 'text-green-500'}`}>
+              {coin.price_change_percentage_24h >0 ? '▲' : '▼'} {coin.price_change_percentage_24h}
               </td>
-              <td className={`px-4 py-2 ${coin.name.startsWith('-') ? 'text-red-500' : 'text-green-500'}`}>
+              <td className={`px-4 py-2 hidden md:table-cell ${coin.name.startsWith('-') ? 'text-red-500' : 'text-green-500'}`}>
                 2.3
               </td>
-              <td className="px-4 py-2">$ {coin.total_volume}</td>
-              <td className="px-4 py-2">$ {coin.market_cap}</td>
+              <td className="px-4 py-2 hidden md:table-cell">$ {coin.total_volume}</td>
+              <td className="px-4 py-2 hidden md:table-cell">$ {coin.market_cap}</td>
+              <td className="px-4 py-2 hidden md:table-cell">
+              <Image src='/total_market_cap.svg' alt='/' width={70} height={40} />
+              </td>
+
             </tr>
           ))}
         </tbody>
       </table>
+      <Pagination 
+        page={currentPage} 
+        totalPages={totalPages} 
+        handlePrev={handlePrev} 
+        handleNext={handleNext} 
+        handlePageClick={handlePageClick}
+        pages={pages} 
+      />
     </div>
     // </div>
   );
