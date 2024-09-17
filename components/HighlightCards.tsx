@@ -12,15 +12,17 @@ const HighlightCards = () => {
 
 
   return (
-    <div className='mt-20 '>
+    <div className='mt-20 w-full max-w-[1015px]'>
      <h2 className="text-xl font-bold text-white">
      Cryptocurrency Prices by Market Cap
         </h2>
         <p className='text-white mb-4' ><span className={marketCapPerNum < 0 ? 'text-red-500' : 'text-green-500'}>{marketCapPerNum>0 ? '▲' : '▼'} {marketCapPerNum}% </span>change in the last 24 hours.</p>
-    <div className='container flex flex-col md:flex-row justify-center items-center gap-2'>
-    <div className=''>
+    {/* <div className='border flex flex-col md:flex-row justify-center items-center gap-2'> */}
+
+    <div className='flex flex-col md:flex-row items-center w-full justify-between'>
+    <div className='flex flex-col gap-4'>
         {/* MarketCap */}
-        <div className='flex justify-between w-100 h-full items-center bg-slate-600 rounded-lg shadow-md p-3 gap-2'>
+        <div className='flex justify-between items-center bg-slate-600 rounded-lg shadow-md p-3 gap-2'>
         <span className=''>
         <h2 className="text-xl font-bold text-gray-800">
           ${marketCap.split('.')[0]}
@@ -34,7 +36,7 @@ const HighlightCards = () => {
         </div>
 
         {/* Volume */}
-        <div className='flex justify-between w-100 h-full items-center bg-slate-600 rounded-lg shadow-md p-3 gap-2 mt-2'>
+        <div className='flex justify-between items-center bg-slate-600 rounded-lg shadow-md p-3 gap-2 '>
         <span className=''>
         <h2 className="text-xl font-bold text-gray-800">
           ${vol}
@@ -45,10 +47,10 @@ const HighlightCards = () => {
         </span>
         <Image src='/total_volume.svg' alt='/' width={100} height={70} />
         </div>
-    </div>
+        </div>
 
     {/* Trending */}
-    <div className='w-100 bg-slate-600 rounded-lg shadow-md p-3 '>
+    <div className=' bg-slate-600 rounded-lg shadow-md p-3 '>
         <span className='flex justify-between items-center gap-[50px] mb-5'>
         <h2 className="text-xl font-bold text-gray-800">
         🔥 Trending
@@ -61,7 +63,7 @@ const HighlightCards = () => {
     </div>
 
     {/* Gainers */}
-    <div className='w-100 h-full bg-slate-600 rounded-lg shadow-md p-3'>
+    <div className='h-full bg-slate-600 rounded-lg shadow-md p-3'>
         <span className='flex justify-between items-center gap-10 mb-5' >
         <h2 className="text-xl font-bold text-gray-800">
         🚀 Largest Gainers

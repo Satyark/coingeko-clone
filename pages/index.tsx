@@ -1,3 +1,4 @@
+import CoinChart from "@/components/Chart";
 import HighlightCards from "@/components/HighlightCards";
 import Table from "@/components/Table";
 import CryptoTable from "@/components/TableDummy";
@@ -23,6 +24,7 @@ export default function Home() {
       {/* <Table /> */}
       {/* <TableV2/> */}
       <CryptoTable/>
+      {/* <CoinChart/> */}
 
     </main>
   );
