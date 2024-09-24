@@ -1,8 +1,12 @@
 import CoinChart from "@/components/Chart";
+import Hero from "@/components/Hero";
 import HighlightCards from "@/components/HighlightCards";
+import Layout from "@/components/layout/Layout";
 import Table from "@/components/Table";
 import CryptoTable from "@/components/TableDummy";
 import TableV2 from "@/components/TableV2";
+import { FloatingNav } from "@/components/ui/FloatingNavbar";
+import { navItems } from "@/data/data";
 import localFont from "next/font/local";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -17,15 +21,16 @@ const geistMono = localFont({
 
 export default function Home() {
   return (
+    <Layout>
     <main
-      className="relative flex justify-center items-center flex-col overflow-hidden mx-auto text-black"
+      className="relative flex justify-center items-center flex-col overflow-hidden mx-auto "
     >
+      <Hero/>
       <HighlightCards/>
       {/* <Table /> */}
       {/* <TableV2/> */}
       <CryptoTable/>
-      {/* <CoinChart/> */}
-
     </main>
+    </Layout>
   );
 }

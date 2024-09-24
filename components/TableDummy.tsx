@@ -1,6 +1,5 @@
 'use client';
 import useToken from '@/hooks/useToken';
-import { Spinner } from '@nextui-org/react';
 import Image from 'next/image';
 import React, { useMemo, useState } from 'react';
 import Pagination from './Pagination';
@@ -40,6 +39,25 @@ const CryptoTable = () => {
       direction: null,
     });
 
+    // const [data, setData] = useState(rows);
+    // const [order,setOrder] = useState('ASC');
+    // const handleSort =(col:string)=>{
+    //   if(order === "ASC"){
+    //     const sorted = [...data].sort((a,b)=>
+    //       a[col]> b[col] ? 1: -1
+    //     );
+    //     setData(sorted);
+    //     setOrder("DSC")
+    //   }
+    //   if(order === "DSC"){
+    //     const sorted = [...data].sort((a,b)=>
+    //       a[col]< b[col] ? 1: -1
+    //     );
+    //     setData(sorted);
+    //     setOrder("ASC")
+    //   }
+    // }
+
     const sortedTokens = useMemo(() => {
         let sortableTokens = [...tokens];
         if (sortConfig.key) {
@@ -65,21 +83,20 @@ const CryptoTable = () => {
         setSortConfig({ key: column, direction });
       };
   return (
-    // <div className="flex gap-4">{ loading ? <Spinner color="warning"/>:
     <div className="mx-auto px-4 py-8">
       <table className="min-w-auto table-auto text-left bg-gray-900 text-white">
-      <thead className="bg-gray-800">
+      <thead className="bg-[#300c1d] border">
   <tr>
     <th className="px-4 py-2 cursor-pointer" onClick={() => handleSort('key')} >
-      # {sortConfig.key === 'key' && (sortConfig.direction === 'ascending' ? '▲' : '▼')}
+       # {sortConfig.key === 'key' && (sortConfig.direction === 'ascending' ? '▲' : '▼')}
     </th>
     <th className="px-4 py-2">Coin</th>
     <th className="px-4 py-2 cursor-pointer" onClick={() => handleSort('current_price')}>
-      Price {sortConfig.key === 'current_price' && (sortConfig.direction === 'ascending' ? '▲' : '▼')}
+       Price {sortConfig.key === 'current_price' && (sortConfig.direction === 'ascending' ? '▲' : '▼')}
     </th>
     <th className="px-4 py-2 hidden md:table-cell">1h</th>
     <th className="px-4 py-2 hidden md:table-cell cursor-pointer" onClick={() => handleSort('price_change_percentage_24h')}>
-      24h {sortConfig.key === 'price_change_percentage_24h' && (sortConfig.direction === 'ascending' ? '▲' : '▼')}
+       24h {sortConfig.key === 'price_change_percentage_24h' && (sortConfig.direction === 'ascending' ? '▲' : '▼')}
     </th>
     <th className="px-4 py-2 hidden md:table-cell">7d</th>
     <th className="px-4 py-2 hidden md:table-cell">24h Volume</th>
@@ -92,7 +109,7 @@ const CryptoTable = () => {
         {/* <Spinner/> */}
         <tbody>
   {sortedTokens.map((coin, index) => (
-    <tr key={index} className="border-b border-gray-700 hover:bg-gray-800">
+    <tr key={index} className="border border-[gray-700] bg-[#360f21] hover:bg-[#300c1d]">
       <td className="px-4 py-2">{coin.key}</td>
       <td className="px-4 py-2 flex items-center">
         <Image src={coin.image} alt='/' width={24} height={24} className='mr-2' />

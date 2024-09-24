@@ -13,16 +13,16 @@ const HighlightCards = () => {
 
   return (
     <div className='mt-20 w-full max-w-[1015px]'>
-     <h2 className="text-xl font-bold text-white">
+     <h2 className="text-xl font-bold text-white mx-7">
      Cryptocurrency Prices by Market Cap
         </h2>
-        <p className='text-white mb-4' ><span className={marketCapPerNum < 0 ? 'text-red-500' : 'text-green-500'}>{marketCapPerNum>0 ? '▲' : '▼'} {marketCapPerNum}% </span>change in the last 24 hours.</p>
+        <p className='text-white mb-4 mx-7' ><span className={marketCapPerNum < 0 ? 'text-red-500' : 'text-green-500'}>{marketCapPerNum>0 ? '▲' : '▼'} {marketCapPerNum}% </span>change in the last 24 hours.</p>
     {/* <div className='border flex flex-col md:flex-row justify-center items-center gap-2'> */}
 
-    <div className='flex flex-col md:flex-row items-center w-full justify-between'>
-    <div className='flex flex-col gap-4'>
+    <div className='flex flex-col md:flex-row items-center w-full gap-3'>
+    <div className='flex flex-col gap-3'>
         {/* MarketCap */}
-        <div className='flex justify-between items-center bg-slate-600 rounded-lg shadow-md p-3 gap-2'>
+        <div className='flex justify-between items-center bg-[#830846] rounded-lg shadow-md p-3 gap-2 min-w-96 md:w-auto'>
         <span className=''>
         <h2 className="text-xl font-bold text-gray-800">
           ${marketCap.split('.')[0]}
@@ -36,7 +36,7 @@ const HighlightCards = () => {
         </div>
 
         {/* Volume */}
-        <div className='flex justify-between items-center bg-slate-600 rounded-lg shadow-md p-3 gap-2 '>
+        <div className='flex justify-between items-center bg-[#830846] rounded-lg shadow-md p-3 gap-2 w-96 md:w-auto'>
         <span className=''>
         <h2 className="text-xl font-bold text-gray-800">
           ${vol}
@@ -50,8 +50,8 @@ const HighlightCards = () => {
         </div>
 
     {/* Trending */}
-    <div className=' bg-slate-600 rounded-lg shadow-md p-3 '>
-        <span className='flex justify-between items-center gap-[50px] mb-5'>
+    <div className=' bg-[#830846] rounded-lg shadow-md p-3 w-96 md:w-auto'>
+        <span className='flex justify-between items-center gap-8 mb-5'>
         <h2 className="text-xl font-bold text-gray-800">
         🔥 Trending
         </h2>
@@ -63,8 +63,8 @@ const HighlightCards = () => {
     </div>
 
     {/* Gainers */}
-    <div className='h-full bg-slate-600 rounded-lg shadow-md p-3'>
-        <span className='flex justify-between items-center gap-10 mb-5' >
+    <div className='h-full bg-[#830846] rounded-lg shadow-md p-3 w-96 md:w-auto'>
+        <span className='flex justify-between items-center gap-8 mb-5' >
         <h2 className="text-xl font-bold text-gray-800">
         🚀 Largest Gainers
         </h2>
