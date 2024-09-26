@@ -3,6 +3,7 @@ import useGloablData from '@/hooks/useGloablData'
 import Image from 'next/image';
 import CoinRow from './CoinRow';
 import useTopTokens from '@/hooks/useTopTokens';
+import { BackgroundGradient } from './ui/BackgroundGradient';
 
 const HighlightCards = () => {
     const {marketCap,marketCapPer, vol,loading,error} = useGloablData();
@@ -22,9 +23,10 @@ const HighlightCards = () => {
     <div className='flex flex-col md:flex-row items-center w-full gap-3'>
     <div className='flex flex-col gap-3'>
         {/* MarketCap */}
-        <div className='flex justify-between items-center bg-[#830846] rounded-lg shadow-md p-3 gap-2 min-w-96 md:w-auto'>
+        <BackgroundGradient className="rounded-[22px] p-2  bg-white dark:bg-[#830846]">
+        <div className='flex justify-between items-center bg-[#830846] rounded-lg p-3 gap-2 min-w-85 md:w-auto'>
         <span className=''>
-        <h2 className="text-xl font-bold text-gray-800">
+        <h2 className="text-xl font-bold text-white">
           ${marketCap.split('.')[0]}
         </h2>
         <span className='flex justify-start items-center gap-2'>
@@ -34,11 +36,12 @@ const HighlightCards = () => {
         </span>
         <Image src='/total_market_cap.svg' alt='/' width={100} height={70} />
         </div>
-
+        </BackgroundGradient>
         {/* Volume */}
-        <div className='flex justify-between items-center bg-[#830846] rounded-lg shadow-md p-3 gap-2 w-96 md:w-auto'>
+        <BackgroundGradient className="rounded-[22px] p-2  bg-white dark:bg-[#830846]">
+        <div className='flex justify-between items-center bg-[#830846] rounded-lg p-3 gap-2 w-85 md:w-auto'>
         <span className=''>
-        <h2 className="text-xl font-bold text-gray-800">
+        <h2 className="text-xl font-bold text-white">
           ${vol}
         </h2>
         <span className='flex justify-start items-center gap-2'>
@@ -47,12 +50,14 @@ const HighlightCards = () => {
         </span>
         <Image src='/total_volume.svg' alt='/' width={100} height={70} />
         </div>
+        </BackgroundGradient>
         </div>
 
     {/* Trending */}
-    <div className=' bg-[#830846] rounded-lg shadow-md p-3 w-96 md:w-auto'>
+    <BackgroundGradient className="rounded-[22px] p-2  bg-white dark:bg-[#830846]">
+    <div className=' bg-[#830846] rounded-lg p-3 w-85 md:w-auto'>
         <span className='flex justify-between items-center gap-8 mb-5'>
-        <h2 className="text-xl font-bold text-gray-800">
+        <h2 className="text-xl font-bold text-white">
         🔥 Trending
         </h2>
         <p className='text-[14px]'>View more ▼ </p>
@@ -61,14 +66,16 @@ const HighlightCards = () => {
             <CoinRow key={top.item.id} img={top.item.thumb} name={top.item.name} price={top.item.data.price} percentage={top.item.data.price_change_percentage_24h.usd}/>
         ))} 
     </div>
+    </BackgroundGradient>
 
     {/* Gainers */}
-    <div className='h-full bg-[#830846] rounded-lg shadow-md p-3 w-96 md:w-auto'>
+    <BackgroundGradient className="rounded-[22px] p-2  bg-white dark:bg-[#830846]">
+    <div className='h-full bg-[#830846] rounded-lg shadow-md p-3 w-85 md:w-auto'>
         <span className='flex justify-between items-center gap-8 mb-5' >
-        <h2 className="text-xl font-bold text-gray-800">
+        <h2 className="text-xl font-bold text-white">
         🚀 Largest Gainers
         </h2>
-        <p className='text-[14px] opacity-80'>View more ▼ </p>
+        <p className='text-[14px] opacity-85'>View more ▼ </p>
         </span>
         <span className='my-3'>
         {gainers.map((gainer)=>(
@@ -77,6 +84,7 @@ const HighlightCards = () => {
         ))}
         </span>       
     </div>
+    </BackgroundGradient>
     
     </div>
     </div>
