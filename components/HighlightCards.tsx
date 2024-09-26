@@ -24,7 +24,7 @@ const HighlightCards = () => {
     <div className='flex flex-col gap-3'>
         {/* MarketCap */}
         <BackgroundGradient className="rounded-[22px] p-2  bg-white dark:bg-[#830846]">
-        <div className='flex justify-between items-center bg-[#830846] rounded-lg p-3 gap-2 min-w-85 md:w-auto'>
+        <div className='flex justify-between items-center bg-[#830846] rounded-lg p-3 gap-2 min-w-96 md:w-auto'>
         <span className=''>
         <h2 className="text-xl font-bold text-white">
           ${marketCap.split('.')[0]}
@@ -39,7 +39,7 @@ const HighlightCards = () => {
         </BackgroundGradient>
         {/* Volume */}
         <BackgroundGradient className="rounded-[22px] p-2  bg-white dark:bg-[#830846]">
-        <div className='flex justify-between items-center bg-[#830846] rounded-lg p-3 gap-2 w-85 md:w-auto'>
+        <div className='flex justify-between items-center bg-[#830846] rounded-lg p-3 gap-2 w-96 md:w-auto'>
         <span className=''>
         <h2 className="text-xl font-bold text-white">
           ${vol}
@@ -55,7 +55,7 @@ const HighlightCards = () => {
 
     {/* Trending */}
     <BackgroundGradient className="rounded-[22px] p-2  bg-white dark:bg-[#830846]">
-    <div className=' bg-[#830846] rounded-lg p-3 w-85 md:w-auto'>
+    <div className=' bg-[#830846] rounded-lg p-3 w-96 md:w-auto'>
         <span className='flex justify-between items-center gap-8 mb-5'>
         <h2 className="text-xl font-bold text-white">
         🔥 Trending
@@ -70,12 +70,12 @@ const HighlightCards = () => {
 
     {/* Gainers */}
     <BackgroundGradient className="rounded-[22px] p-2  bg-white dark:bg-[#830846]">
-    <div className='h-full bg-[#830846] rounded-lg shadow-md p-3 w-85 md:w-auto'>
+    <div className='h-full bg-[#830846] rounded-lg shadow-md p-3 w-96 md:w-auto'>
         <span className='flex justify-between items-center gap-8 mb-5' >
         <h2 className="text-xl font-bold text-white">
         🚀 Largest Gainers
         </h2>
-        <p className='text-[14px] opacity-85'>View more ▼ </p>
+        <p className='text-[14px] opacity-96'>View more ▼ </p>
         </span>
         <span className='my-3'>
         {gainers.map((gainer)=>(
