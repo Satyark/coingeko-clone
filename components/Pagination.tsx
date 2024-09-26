@@ -24,7 +24,7 @@ const Pagination: React.FC<PaginationProps> = ({ page, totalPages, handlePrev, h
           key={pageNum}
           onClick={() => handlePageClick(pageNum)}
           className={`px-4 py-2 mx-1 rounded transition ${
-            page === pageNum ? 'bg-blue-500 text-black' : 'bg-gray-200 hover:bg-gray-300 text-black'
+            page === pageNum ? 'bg-[#830846] text-black' : 'bg-gray-200 hover:bg-gray-300 text-black'
           }`}
         >
           {pageNum}

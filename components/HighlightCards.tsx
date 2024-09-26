@@ -12,7 +12,7 @@ const HighlightCards = () => {
 
 
   return (
-    <div className='mt-20 w-full max-w-[1015px]'>
+    <div className='mt-10 md:mt-20 w-full max-w-[1015px]'>
      <h2 className="text-xl font-bold text-white mx-7">
      Cryptocurrency Prices by Market Cap
         </h2>

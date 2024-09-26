@@ -87,23 +87,23 @@ const CryptoTable = () => {
       <table className="min-w-auto table-auto text-left bg-gray-900 text-white">
       <thead className="bg-[#300c1d] border">
   <tr>
-    <th className="px-4 py-2 cursor-pointer" onClick={() => handleSort('key')} >
+    <th className="px-4 py-2 cursor-pointer" onClick={() => handleSort('key')} style={{ textShadow: '0 0 10px #e6007a, 0 0 20px #e6007a, 0 0 30px #e6007a' }} >
        # {sortConfig.key === 'key' && (sortConfig.direction === 'ascending' ? '▲' : '▼')}
     </th>
-    <th className="px-4 py-2">Coin</th>
-    <th className="px-4 py-2 cursor-pointer" onClick={() => handleSort('current_price')}>
+    <th className="px-4 py-2" style={{ textShadow: '0 0 10px #e6007a, 0 0 20px #e6007a, 0 0 30px #e6007a' }}>Coin</th>
+    <th className="px-4 py-2 cursor-pointer" onClick={() => handleSort('current_price')} style={{ textShadow: '0 0 10px #e6007a, 0 0 20px #e6007a, 0 0 30px #e6007a' }}>
        Price {sortConfig.key === 'current_price' && (sortConfig.direction === 'ascending' ? '▲' : '▼')}
     </th>
-    <th className="px-4 py-2 hidden md:table-cell">1h</th>
-    <th className="px-4 py-2 hidden md:table-cell cursor-pointer" onClick={() => handleSort('price_change_percentage_24h')}>
+    <th className="px-4 py-2 hidden md:table-cell" style={{ textShadow: '0 0 10px #e6007a, 0 0 20px #e6007a, 0 0 30px #e6007a' }}>1h</th>
+    <th className="px-4 py-2 hidden md:table-cell cursor-pointer" style={{ textShadow: '0 0 10px #e6007a, 0 0 20px #e6007a, 0 0 30px #e6007a' }} onClick={() => handleSort('price_change_percentage_24h')}>
        24h {sortConfig.key === 'price_change_percentage_24h' && (sortConfig.direction === 'ascending' ? '▲' : '▼')}
     </th>
-    <th className="px-4 py-2 hidden md:table-cell">7d</th>
-    <th className="px-4 py-2 hidden md:table-cell">24h Volume</th>
-    <th className="px-4 py-2 hidden md:table-cell cursor-pointer" onClick={() => handleSort('market_cap')}>
+    <th className="px-4 py-2 hidden md:table-cell" style={{ textShadow: '0 0 10px #e6007a, 0 0 20px #e6007a, 0 0 30px #e6007a' }}>7d</th>
+    <th className="px-4 py-2 hidden md:table-cell" style={{ textShadow: '0 0 10px #e6007a, 0 0 20px #e6007a, 0 0 30px #e6007a' }}>24h Volume</th>
+    <th className="px-4 py-2 hidden md:table-cell cursor-pointer" onClick={() => handleSort('market_cap')} style={{ textShadow: '0 0 10px #e6007a, 0 0 20px #e6007a, 0 0 30px #e6007a' }}>
       Market Cap {sortConfig.key === 'market_cap' && (sortConfig.direction === 'ascending' ? '▲' : '▼')}
     </th>
-    <th className="px-4 py-2 hidden md:table-cell">Last 7 Days</th>
+    <th className="px-4 py-2 hidden md:table-cell" style={{ textShadow: '0 0 10px #e6007a, 0 0 20px #e6007a, 0 0 30px #e6007a' }}>Last 7 Days</th>
   </tr>
 </thead>
         {/* <Spinner/> */}
