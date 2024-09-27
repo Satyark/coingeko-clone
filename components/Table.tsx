@@ -4,8 +4,7 @@ import { flexRender, getCoreRowModel, useReactTable } from '@tanstack/react-tabl
 import React, { useMemo } from 'react'
 
 const Table = () => {
-    const {tokens, loading, error} = useToken();
-    console.log("-->", tokens);
+    const {tokens} = useToken();
     const data = useMemo(()=> tokens,[]);
 
     /** @type import('@tanstack/react-table').ColumnDef<any> */
