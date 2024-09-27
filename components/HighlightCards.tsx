@@ -6,7 +6,7 @@ import useTopTokens from '@/hooks/useTopTokens';
 import { BackgroundGradient } from './ui/BackgroundGradient';
 
 const HighlightCards = () => {
-    const {marketCap,marketCapPer, vol,loading,error} = useGloablData();
+    const {marketCap,marketCapPer, vol} = useGloablData();
     const marketCapPerNum: number = parseInt(marketCapPer);
     
     const {top3,gainers} = useTopTokens();

@@ -4,62 +4,15 @@ import Image from 'next/image';
 import React, { useMemo, useState } from 'react';
 import Pagination from './Pagination';
 
-
-const columns = [
-    {
-        key: 'key',
-        label: '#' ,
-      },
-      {
-        key: 'name',
-        label: 'Coin',
-      },
-      {
-        key: 'current_price',
-        label: 'Price',
-      },
-      {
-        key: 'market_cap_change_percentage_24h',
-        label: '24h',
-      },
-      {
-        key: 'total_volume',
-        label:'24h Volume' ,
-      },
-      {
-        key: 'market_cap',
-        label: 'Market Cap',
-      },
-    ]
 const CryptoTable = () => {
-    const {tokens, loading, error, currentPage, totalPages, handleNext, handlePrev, handlePageClick, pages} = useToken();
-    const rows = useMemo(()=> tokens,[currentPage]);
+    const {tokens, currentPage, totalPages, handleNext, handlePrev, handlePageClick, pages} = useToken();
     const [sortConfig, setSortConfig] = useState<{ key: string, direction: 'ascending' | 'descending' | null }>({
       key: '',
       direction: null,
     });
 
-    // const [data, setData] = useState(rows);
-    // const [order,setOrder] = useState('ASC');
-    // const handleSort =(col:string)=>{
-    //   if(order === "ASC"){
-    //     const sorted = [...data].sort((a,b)=>
-    //       a[col]> b[col] ? 1: -1
-    //     );
-    //     setData(sorted);
-    //     setOrder("DSC")
-    //   }
-    //   if(order === "DSC"){
-    //     const sorted = [...data].sort((a,b)=>
-    //       a[col]< b[col] ? 1: -1
-    //     );
-    //     setData(sorted);
-    //     setOrder("ASC")
-    //   }
-    // }
-
     const sortedTokens = useMemo(() => {
-        let sortableTokens = [...tokens];
+        const sortableTokens = [...tokens];
         if (sortConfig.key) {
           sortableTokens.sort((a, b) => {
             const aValue = a[sortConfig.key];
