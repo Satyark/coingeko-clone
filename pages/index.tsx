@@ -1,3 +1,4 @@
+import Dashboard from "@/components/Cards";
 import Hero from "@/components/Hero";
 import HighlightCards from "@/components/HighlightCards";
 import Layout from "@/components/layout/Layout";

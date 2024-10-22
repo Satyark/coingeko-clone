@@ -10,10 +10,10 @@ const CoinRow = ({img, name, price, percentage}: {
     const priceNum = parseFloat(price)>1 ? parseFloat(price).toFixed(3): parseFloat(price).toFixed(6);
     const perNum = parseFloat(percentage);
   return (
-    <div className='flex justify-between items-center w-full text-[14px] gap-8 my-1.5'>
+    <div className='flex justify-between items-center w-full text-[12px] md:text-[14px] gap-8 my-1.5'>
         <span className='flex justify-center items-end gap-2'>
         <Image src={img} alt='/' width={24} height={24}/>
-        <p className="text-white">{name}</p>
+        <p className="text-white">{name.length<15 ? name : name.trim().split(' ')[0]}</p>
         </span>
         <span className='flex justify-center items-end gap-2 ml-2'>   
         <p className="text-gray-900">${priceNum}</p>

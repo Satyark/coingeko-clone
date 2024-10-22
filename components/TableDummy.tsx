@@ -66,7 +66,7 @@ const CryptoTable = () => {
       <td className="px-4 py-2">{coin.key}</td>
       <td className="px-4 py-2 flex items-center">
         <Image src={coin.image} alt='/' width={24} height={24} className='mr-2' />
-        <span className="font-medium">{coin.name}</span>
+        <span className="font-medium">{coin.name.length<20 ? coin.name : null}</span>
         <span className="ml-2 text-gray-500">{coin.symbol.toUpperCase()}</span>
       </td>
       <td className="px-4 py-2">$ {coin.current_price}</td>
